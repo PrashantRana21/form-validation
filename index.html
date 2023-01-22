@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    function validateForm() {
+
+
+
+ 
+        //user name section..............
+  let x = document.forms["myForm"]["fname"].value;
+  let correct_way=/[A-Za-z]$/;
+  if (x == "") {
+    alert("Name must be filled out");
+    document.getElementById("massege").innerHTML="**please enter the name";
+    return false;
+  }
+  if(x.length<3){
+    document.getElementById("massege").innerHTML="**please must be  enter 3 character ";
+    return false;
+  }
+  if(x.length>8){
+    document.getElementById("massege").innerHTML="** please  must be enter 8 character";
+ return false;
+  }
+if(x.match(correct_way)){
+    
+    //true;
+    //alert(" Hi!.....Please ok if your submit the user name ");
+   // document.write(" your user name  successfully submitted..........." );
+
+}else{
+    document.getElementById("massege").innerHTML="**only alphabets are allowed";
+    
+    return false;
+}
+
+//password section............
+let y = document.forms["myForm"]["passwords"].value;
+ let z = document.forms["myForm"]["cfirm"].value;
+ if(y == ""){
+  document.getElementById("massege1").innerHTML="**please fill the password";
+    return false;
+ }
+if(y.length<3){
+  document.getElementById("massege1").innerHTML="**Please must be  4  digit enter ";
+  return false;
+}
+if(y.length>6){
+  document.getElementById("massege1").innerHTML="**Please must be  enter less then 6 digit";
+  return false;
+}
+if(z!=y){
+  document.getElementById("massege2").innerHTML="**password are not match";
+  return false;
+}
+// document.write(" your user name & password successfully submitted..........." );
+
+
+//Email section..........
+let a= document.forms["myForm"]["Email"].value;
+let correct_ways=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+if(a == ""){
+  document.getElementById("email1").innerHTML="**Please enter the email";
+  return false;
+}
+
+
+
+if(a.match(correct_ways)){
+    
+       // true;
+       // alert(" Hi!.....Please ok if your submit the email id ");
+       // document.write(" your email id successfully submitted..........." );
+    
+    }else{
+        document.getElementById("email1").innerHTML="**only  vaild email id  are allowed";
+        
+        return false;
+    }
+   // document.write(" your user name & password & email successfully submitted..........." );
+
+//mobile section...............
+let b=document.forms["myForm"]["mobile"].value;
+ if(b ==""){
+  document.getElementById("mobile1").innerHTML="**Plese fill the mobile no";
+  return false;
+ }
+ if(isNaN(b)){
+  document.getElementById("mobile1").innerHTML="Please enter numaric number";
+  return false;
+ }
+
+ if(b.length<10){
+document.getElementById("mobile1").innerHTML="please enter 10 digit no";
+return false;
+ }
+ if(b.length>10){
+document.getElementById("mobile1").innerHTML="**Please enter less then 11 digit no";
+return false;
+ }
+ 
+//  if((b.charArt(0)!=9)&&(b.charArt(0)!=8)&&(b.charArt(0)!=7)){
+//   alert("please must be enter start with 9,8,7");}
+//   document.getElementById("mobile1").innerHTML="**Mobile no must be start with 9,8,7";
+//   return false;
+ 
+//document.write(" your user name & password & email & mobile no successfully submitted..........." );
+
+
+//radio button section.............
+
+var c= document.forms["myForm"]["container"].value;
+for(i=0;i<c.length;i++)
+{
+  if(c[i].checked==true)
+  true;
+  document.write(" your form successfully submitted..........." );
+  return false;
+}
+
+  document.getElementById("share").innerHTML="**please select any one";
+  return false;
+}
+
+  //  document.getElementById("share").innerHTML=" successfully submitted.......";
+  //  return false;
+   
+  
+//checkbox section.............
+// var d= document.forms["myForm"]["contains"].value;
+// for(j=0;j<d.length;j++){
+//   if(d.checked==true)
+//    true;
+  //  document.getElementById("like").innerHTML=" successfully submitted.......";
+  //  return false;
+//}
+
+
+
+// document.getElementById("like").innerHTML="**please select any one";
+// return false;
+
+
+
+    
+</script>
+<h1>
+    <p style="color: red;">Rana  registion form</p>
+</h1>
+
+<form name="myForm"  onsubmit="return validateForm()" method="post">
+    User name: <input type="text" name="fname" placeholder="user name" ><span id="massege" style="color: red;" ></span> 
+    <br>
+    <br>
+      Passowrd: <input type="password" name="passwords"><span id="massege1" style="color: red;"></span> 
+    <br>
+    <br>
+  confirm password: <input type="password" name="cfirm"><span id="massege2" style="color:red;"></span>
+    <br>
+    <br> 
+     Email id: <input type="text" name="Email"><span id ="email1" style="color:red;"></span>
+    <br>
+    <br>
+    Mobile no: <input type="text" name="mobile"><span id="mobile1" style="color: red;"></span>
+    <br>
+    <br>
+    <p>like & share</p>
+    <input type="radio" name="container">like
+    <input type="radio" name="container">share
+  <span id="share" style="color: red;"></span>
+    <br>
+    <br>
+    <!-- <p>select checkbox if you chosse...</p>
+    
+    <input type="checkbox" name="contains">likes
+    <input type="checkbox" name="contains">shares
+    <input type="checkbox" name="contains">subscribes
+    <span id="like" style="color: red;"></span>
+     -->
+    <br> 
+
+    <input type="submit" value="Submit">
+
+
+
+</form>
+
+</body>
+</html>
